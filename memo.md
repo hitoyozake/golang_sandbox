@@ -10,6 +10,6 @@ go run *.go
 # ビルド  
 
 ```
-go build *,go
+go build *.go
 ```
 
