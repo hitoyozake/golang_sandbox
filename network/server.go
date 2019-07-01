@@ -15,15 +15,27 @@ func main(){
   if err != nil{
       fmt.Printf("err\n")
   }
+  reader := bufio.NewReader(con)
+  for {
+      fmt.Printf("waiting")
+      message, err := reader.ReadString('\n')
 
+      if err != nil{
+        fmt.Printf("error!")
+        return
+      }
 
-    for {
-        message, _ := bufio.NewReader(con).ReadString('\n')
-        fmt.Printf("Recieved Message: %s", message)
-        log.Print(message)
-        con.Write([]byte("aaa"+"\n"))
+      fmt.Printf("Recieved Message: %s", message)
+      fmt.Printf("")
+      log.Print(message)
+      con.Write([]byte(message+"\n"))
+
+      if message == "q\n"{
+        break
+      }
+
   }
 
-        con.Close()
+  con.Close()
 
 }

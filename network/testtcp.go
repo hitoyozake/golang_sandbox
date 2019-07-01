@@ -21,4 +21,11 @@ func main(){
   message, _ := bufio.NewReader(conn).ReadString('\n')
   fmt.Printf("%s", message)
 
+  text = "q"
+  conn.Write([]byte(text+"\n"))
+
+  message, _ = bufio.NewReader(conn).ReadString('\n')
+  fmt.Printf("%s", message)
+
+
 }
