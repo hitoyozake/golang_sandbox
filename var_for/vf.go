@@ -7,10 +7,6 @@ func main(){
     //var a, b, c int
     //var x = 1
     var y = 14
-    //var(
-      //  y, z int
-      //  name string
-    //)
 
     fmt.Printf("%d\n", y )
 
@@ -26,6 +22,14 @@ func main(){
 
     for index, s := range sarray {
         fmt.Printf("%d %s", index, s)
+    }
+
+    var array2 [5]string
+
+    array2 = [5]string{"a", "b", "c", "d", "e"}
+
+    for _, s:= range array2{
+      fmt.Printf("%s'\n", s)
     }
 
 }

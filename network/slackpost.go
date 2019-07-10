@@ -12,10 +12,10 @@ import (
 func main(){
   client := &http.Client{}
 
-  encoded, err := url.QueryUnescape(`{"text":"post from golang", "username": "testBot"}`)
+  encoded, _ := url.QueryUnescape(`{"text":"post from golang", "username": "testBot"}`)
   buf := []byte(encoded)
 
-  request, err := http.NewRequest("POST",
+  request, _ := http.NewRequest("POST",
     "https://hooks.slack.com/services/T8JTRHP1B/B8JQKM3AQ/*******",
      bytes.NewBuffer(buf))
 
