@@ -8,6 +8,14 @@ import (
   "net/url"
 )
 
+struct SlackClient{
+    url string
+}
+
+func Post(client SlackClient){
+  
+}
+
 
 func main(){
   client := &http.Client{}
