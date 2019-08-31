@@ -8,17 +8,22 @@ import (
   "net/url"
 )
 
-struct SlackClient{
+type SlackClient struct{
     url string
+    clien *http.Client
 }
 
-func Post(client SlackClient){
-  
-}
+//func post(client SlackClient){
+//}
 
 
 func main(){
   client := &http.Client{}
+
+  var cl = &SlackClient{
+    url: "abc",
+    clien: &http.Client{},
+  }
 
   encoded, _ := url.QueryUnescape(`{"text":"post from golang", "username": "testBot"}`)
   buf := []byte(encoded)

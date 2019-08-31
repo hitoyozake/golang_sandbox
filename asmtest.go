@@ -5,6 +5,6 @@ import (
 )
 
 func main(){
-	printf("Hello, world!\n")
+	fmt.Printf("Hello, world!\n")
 }
 
