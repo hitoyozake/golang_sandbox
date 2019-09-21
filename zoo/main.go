@@ -59,4 +59,51 @@ func main() {
 		fmt.Println(f64)
 	}
 
+	{
+		//array
+		a := [4]int{1, 2, 3, 4}
+		b := [4]int{1, 2} //{1,2,0,0}
+		c := [4]int{}     // {0, 0, 0, 0}
+
+		var d [4]int        //{ 0, 0, 0, 0}
+		e := [...]int{1, 2} //{1, 2}
+
+		fmt.Println(a, b, c, d, e)
+		fmt.Println(b[1])
+	}
+
+	{
+		//interface type
+		var x interface{}
+		x = 1
+		x = 3.14
+		x = "hello"
+		x = [...]uint8{1, 2, 3}
+
+		fmt.Println(x)
+
+		x = 4
+		i := x.(int)
+		//f := x.(float64) //->error
+		// type assertion
+
+		i, isInt := x.(int)
+		f, isFloat64 := x.(float64)
+
+		fmt.Println(i, f, isInt, isFloat64)
+
+		switch x.(type) {
+		case bool:
+			fmt.Println("x is bool type")
+		case int, uint:
+			fmt.Println("x is integer or u integer")
+		default:
+			fmt.Println("x is unknown type")
+		}
+
+		for i := 0; i < 5; i++ {
+			fmt.Println(i)
+		}
+
+	}
 }
