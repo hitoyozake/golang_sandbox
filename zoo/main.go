@@ -8,6 +8,33 @@ import (
 
 var package_var = "this is package var"
 
+func powA(a [3]int) { //copy
+	for i, item := range a {
+		a[i] = item * item
+	}
+}
+
+func powS(a []int) { // reference
+	for i, item := range a {
+		a[i] = item * item
+	}
+
+}
+
+func sub() {
+	for {
+		fmt.Println("Sub loop...")
+	}
+}
+
+func sum(s ...int) int {
+	var r int
+	for _, item := range s {
+		r += item
+	}
+	return r
+}
+
 func main() {
 	fmt.Println("test!")
 	fmt.Println(animals.Baw()) // using my original package
@@ -106,4 +133,70 @@ func main() {
 		}
 
 	}
+
+	/*
+		go sub() // goroutin
+
+		for i := 0; i < 30; i++ {
+
+			println("main loop...")
+
+		}
+	*/
+
+	{
+		va := make([]int, 3)
+
+		va[0] = 1
+		va[1] = 2
+		va[2] = 3
+		fmt.Printf("%d\n", len(va))
+		va = append(va, 4)
+		for i, item := range va {
+			fmt.Printf("index: %d, %d\n", i, item)
+		}
+
+		va2 := va[1:3] //slicing
+		for i, item := range va2 {
+			fmt.Printf("index: %d, %d\n", i, item)
+		}
+
+		capacity := make([]int, 8, 24) // argument of 3rd is capacity
+
+		capacity[0] = 100
+
+		fmt.Println(capacity[1])
+
+		fmt.Println(sum(va...)) // variadec arguments expanded
+
+		three := [3]int{1, 2, 3}
+
+		powA(three)
+
+		for _, item := range three {
+			fmt.Println(item) // nochange
+		}
+
+		threeS := []int{1, 2, 3} // [...] or [NUM] -> array, [] -> slice
+		powS(threeS)             // reference
+
+		for _, item := range threeS {
+			fmt.Println(item)
+		}
+
+	}
+
+	{
+		//map
+		var mp map[int]string
+		mp = map[int]string{1: "Taro", 2: "John"}
+
+		mp[1] = "Taro"
+
+		for key, value := range mp {
+			fmt.Printf("K :%d, V: %s\n", key, value)
+		}
+
+	}
+
 }
